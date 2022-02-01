@@ -21,7 +21,7 @@ class Deck extends Component {
         try {
             let cardUrl = `${API_BASE_URL}/${deck_id}/draw/`;
             let cardResponse = await axios.get(cardUrl);
-            if (cardResponse.data.remaining === 0) {
+            if (!cardResponse.data.success) { // from API
                 throw new Error ("No cards left!")
             }
             console.log(cardResponse.data);
@@ -38,7 +38,7 @@ class Deck extends Component {
                 ]
             }));
         } catch (err) {
-            alert(err)
+            alert(err);
         }
     }
         render() {

@@ -23,7 +23,7 @@ class Deck extends Component {
         let cardResponse = await axios.get(cardUrl);
         console.log(cardResponse.data)
         // set state using new card info
-        let card = cardResponse.data.cards[0] //in data
+        let card = cardResponse.data.cards[0]; //in data
         this.setState(st => ({
             drawn: [
                 ...st.drawn, // what's already in state
